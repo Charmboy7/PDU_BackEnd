@@ -1,9 +1,5 @@
--- Clear existing entries for these categories to maintain idempotency in this repeatable migration
-
-DELETE FROM options WHERE field_name IN (
-    'country', 'product_region', 'phase', 'input_voltage', 'input_current'
-    'outlet_type', 'outlet_arrangement', 'input_position', 'mounting_type', 'outlet_spacing', 'input_breaker_or_fuse', 'input_breaker_type'
-);
+-- Clear all existing entries to maintain idempotency in this repeatable migration
+TRUNCATE TABLE options;
 
 INSERT INTO options (field_name, value, label) VALUES
 
@@ -30,9 +26,10 @@ INSERT INTO options (field_name, value, label) VALUES
 ('input_voltage', '208V', '208V'),
 
 -- Outlet Type
-('outlet_type', 'C13', 'C13'),
-('outlet_type', 'C19', 'C19'),
+('outlet_type', 'C13', 'C13 (IEC 60320)'),
+('outlet_type', 'C19', 'C19 (IEC 60320)'),
 ('outlet_type', 'Mixed', 'Mixed (C13 + C19)'),
+('outlet_type', 'NEMA_5_20R', 'NEMA 5-20R'),
 
 -- Outlet Arrangement
 ('outlet_arrangement', 'Vertical - Single Column', 'Vertical – Single Column'),
@@ -68,12 +65,6 @@ INSERT INTO options (field_name, value, label) VALUES
 ('input_breaker_type', 'MCB', 'MCB'),
 ('input_breaker_type', 'MCCB', 'MCCB'),
 ('input_breaker_type', 'ACB', 'ACB'),
-
--- SUBFEED BREAKER SCREENS
--- Outlet Types
-('outlet_type', 'C13', 'C13 (IEC 60320)'),
-('outlet_type', 'C19', 'C19 (IEC 60320)'),
-('outlet_type', 'NEMA_5_20R', 'NEMA 5-20R'),
 
 -- Outlet Features (Toggles)
 ('outlet_feature', 'STANDARD', 'Standard'),

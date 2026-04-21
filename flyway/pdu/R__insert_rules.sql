@@ -1,6 +1,5 @@
 -- Repeatable migration for Transformer Configuration Rules
-
-DELETE FROM rules WHERE screen_name = 'transformer_configuration';
+TRUNCATE TABLE rules;
 
 INSERT INTO rules (screen_name, field_name, depends_on, rules)
 VALUES 
