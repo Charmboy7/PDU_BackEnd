@@ -8,12 +8,13 @@ logger = logging.getLogger(__name__)
 
 async def create_new_quote(quote: QuoteCreate) -> QuoteResponse:
     try:
-        quote_id = await quotes_service.create_quote(quote.dict())
+        quote_id, quote_number = await quotes_service.create_quote(quote.dict())
         if not quote_id:
              raise HTTPException(status_code=500, detail="Failed to generate quote")
         
         return QuoteResponse(
             quote_id=quote_id,
+            quote_number=quote_number,
             message="Quote and configuration created successfully"
         )
     except Exception as e:
@@ -22,12 +23,13 @@ async def create_new_quote(quote: QuoteCreate) -> QuoteResponse:
 
 async def update_existing_quote(quote_id: UUID, quote: QuoteUpdate) -> QuoteResponse:
     try:
-        updated_id = await quotes_service.update_quote(quote_id, quote.dict())
+        updated_id, quote_number = await quotes_service.update_quote(quote_id, quote.dict())
         if not updated_id:
              raise HTTPException(status_code=404, detail="Quote not found or update failed")
              
         return QuoteResponse(
             quote_id=updated_id,
+            quote_number=quote_number,
             message="Quote updated successfully"
         )
     except HTTPException as e:
