@@ -1,16 +1,28 @@
--- Repeatable migration for compatibility rules
--- Clear existing compatibility rules for Phase -> Voltage mapping
-DELETE FROM rules WHERE rule_type = 'compatibility' AND message LIKE '%Phase supports only%';
+-- Repeatable migration for Transformer Configuration Rules
 
-INSERT INTO rules (rule_type, condition, action, message) VALUES
+DELETE FROM rules WHERE screen_name = 'transformer_configuration';
 
--- Phase -> Voltage mapping
-('compatibility',
-'{"phase": "1PH"}',
-'{"allow": {"voltage": ["120V"]}}',
-'1PH supports only 120V'),
-
-('compatibility',
-'{"phase": "3PH"}',
-'{"allow": {"voltage": ["208V"]}}',
-'3PH supports only 208V');
+INSERT INTO rules (screen_name, field_name, depends_on, rules)
+VALUES 
+(
+  'transformer_configuration',
+  'input_voltage',
+  'phase',
+  '{
+    "conditions": [
+      { "if": "1PH", "values": ["120V", "208V"] },
+      { "if": "3PH", "values": ["208V"] }
+    ]
+  }'::jsonb
+),
+(
+  'transformer_configuration',
+  'input_current',
+  'phase',
+  '{
+    "conditions": [
+      { "if": "1PH", "values": ["20A", "30A"] },
+      { "if": "3PH", "values": ["20A", "30A", "50A", "60A"] }
+    ]
+  }'::jsonb
+);

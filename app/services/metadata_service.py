@@ -15,10 +15,9 @@ async def get_all_metadata():
         
         # Fetch rules
         rules_query = """
-            SELECT rule_type, condition, action, message 
+            SELECT screen_name, field_name, depends_on, rules 
             FROM rules 
-            WHERE is_active = TRUE 
-            ORDER BY priority DESC
+            WHERE is_active = TRUE
         """
         rules_rows = await conn.fetch(rules_query)
         
@@ -53,17 +52,15 @@ async def get_all_metadata():
         structured_rules = []
         for row in rules_rows:
             rule_data = {
-                "rule_type": row['rule_type'],
-                "condition": row['condition'],
-                "action": row['action'],
-                "message": row['message']
+                "screen_name": row['screen_name'],
+                "field_name": row['field_name'],
+                "depends_on": row['depends_on'],
+                "rules": row['rules']
             }
             
             # asyncpg converts jsonb to dict/list automatically
-            if isinstance(rule_data['condition'], str):
-                rule_data['condition'] = json.loads(rule_data['condition'])
-            if isinstance(rule_data['action'], str):
-                rule_data['action'] = json.loads(rule_data['action'])
+            if isinstance(rule_data['rules'], str):
+                rule_data['rules'] = json.loads(rule_data['rules'])
                 
             structured_rules.append(rule_data)
             
