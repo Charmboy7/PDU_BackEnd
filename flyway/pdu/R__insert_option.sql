@@ -2,7 +2,7 @@
 
 DELETE FROM options WHERE field_name IN (
     'country', 'product_region', 'phase', 'input_voltage', 'input_current'
-    'outlet_type', 'outlet_arrangement', 'input_position', 'mounting_type', 'outlet_spacing'
+    'outlet_type', 'outlet_arrangement', 'input_position', 'mounting_type', 'outlet_spacing', 'input_breaker_or_fuse', 'input_breaker_type'
 );
 
 INSERT INTO options (field_name, value, label) VALUES
@@ -62,4 +62,13 @@ INSERT INTO options (field_name, value, label) VALUES
 ('input_current', '20A', '20A'),
 ('input_current', '30A', '30A'),
 ('input_current', '50A', '50A'),
-('input_current', '60A', '60A');
+('input_current', '60A', '60A'),
+
+-- Input Breaker or Fuse
+('input_breaker_or_fuse', 'Circuit Breaker', 'Circuit Breaker'),
+('input_breaker_or_fuse', 'Resettable Fuse', 'Resettable Fuse'),
+
+-- Input Breaker Type
+('input_breaker_type', 'MCB', 'MCB'),
+('input_breaker_type', 'MCCB', 'MCCB'),
+('input_breaker_type', 'ACB', 'ACB');
