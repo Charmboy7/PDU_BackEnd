@@ -103,4 +103,17 @@ INSERT INTO options (field_name, value, label, metadata) VALUES
 -- Outlet Features (Toggles)
 ('outlet_feature', 'STANDARD', 'Standard', NULL),
 ('outlet_feature', 'LOCKABLE', 'Lockable', NULL),
-('outlet_feature', 'INDIVIDUAL_FUSED', 'Individual Fused', NULL);
+('outlet_feature', 'INDIVIDUAL_FUSED', 'Individual Fused', NULL),
+
+-- PDU Series
+('pdu_series', 'RP3000', 'RP3000', NULL),
+('pdu_series', 'RP2000', 'RP2000', NULL),
+('pdu_series', 'RP1500', 'RP1500', NULL),
+('pdu_series', 'RP1000', 'RP1000', NULL),
+('pdu_series', 'RP100', 'RP100', NULL),
+
+-- Monitoring Features
+('monitoring_feature', 'SWITCH', 'Outlet Switch ON / OFF', NULL),
+('monitoring_feature', 'SNMP', 'SNMP Hardware', NULL),
+('monitoring_feature', 'OUTLET_MEAS', 'Outlet Measurement', NULL),
+('monitoring_feature', 'CIRCUIT_MEAS', 'Circuit Measurement', NULL);

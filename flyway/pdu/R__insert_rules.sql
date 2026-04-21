@@ -68,4 +68,19 @@ VALUES
       }
     ]
   }'::jsonb
+),
+-- PDU Series → Monitoring Feature Availability
+(
+  'monitoring_configuration',
+  'monitoring_feature',
+  'pdu_series',
+  '{
+    "conditions": [
+      { "if": "RP3000", "values": ["SWITCH", "SNMP", "OUTLET_MEAS", "CIRCUIT_MEAS"] },
+      { "if": "RP2000", "values": ["SWITCH", "SNMP", "CIRCUIT_MEAS"] },
+      { "if": "RP1500", "values": ["SNMP", "OUTLET_MEAS", "CIRCUIT_MEAS"] },
+      { "if": "RP1000", "values": ["SNMP", "CIRCUIT_MEAS"] },
+      { "if": "RP100", "values": ["CIRCUIT_MEAS"] }
+    ]
+  }'::jsonb
 );
