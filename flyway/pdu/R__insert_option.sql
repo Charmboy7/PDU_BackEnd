@@ -29,10 +29,6 @@ INSERT INTO options (field_name, value, label) VALUES
 ('input_voltage', '120V', '120V'),
 ('input_voltage', '208V', '208V'),
 
--- Current
-('current', '20A', '20 Amps'),
-('current', '30A', '30 Amps'),
-
 -- Outlet Type
 ('outlet_type', 'C13', 'C13'),
 ('outlet_type', 'C19', 'C19'),
@@ -71,4 +67,15 @@ INSERT INTO options (field_name, value, label) VALUES
 -- Input Breaker Type
 ('input_breaker_type', 'MCB', 'MCB'),
 ('input_breaker_type', 'MCCB', 'MCCB'),
-('input_breaker_type', 'ACB', 'ACB');
+('input_breaker_type', 'ACB', 'ACB'),
+
+-- SUBFEED BREAKER SCREENS
+-- Outlet Types
+('outlet_type', 'C13', 'C13 (IEC 60320)'),
+('outlet_type', 'C19', 'C19 (IEC 60320)'),
+('outlet_type', 'NEMA_5_20R', 'NEMA 5-20R'),
+
+-- Outlet Features (Toggles)
+('outlet_feature', 'STANDARD', 'Standard'),
+('outlet_feature', 'LOCKABLE', 'Lockable'),
+('outlet_feature', 'INDIVIDUAL_FUSED', 'Individual Fused');
