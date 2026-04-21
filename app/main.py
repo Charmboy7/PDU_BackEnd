@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes.options_routes import router as options_router
 from app.routes.metadata_routes import router as metadata_router
+from app.routes.quotes_routes import router as quotes_router
 from app.db.database import init_db_pool, close_db_pool
 
 app = FastAPI(title="Hyper PDU Configurator API")
@@ -29,6 +30,7 @@ async def shutdown_event():
 
 app.include_router(options_router, prefix="/options")
 app.include_router(metadata_router, prefix="/metadata")
+app.include_router(quotes_router, prefix="/quotes")
 
 @app.get("/health", tags=["health"])
 async def health_check():
