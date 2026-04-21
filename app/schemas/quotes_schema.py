@@ -18,4 +18,5 @@ class QuoteUpdate(QuoteBase):
 
 class QuoteResponse(BaseModel):
     quote_id: UUID
+    quote_number: str
     message: str

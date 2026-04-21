@@ -7,10 +7,10 @@ class OptionSchema(BaseModel):
     metadata: Optional[Dict[str, Any]] = None
 
 class RuleSchema(BaseModel):
-    rule_type: str
-    condition: Dict[str, Any]
-    action: Dict[str, Any]
-    message: str
+    screen_name: str
+    field_name: str
+    depends_on: Optional[str] = None
+    rules: Dict[str, Any]
 
 class MetadataResponse(BaseModel):
     options: Dict[str, List[OptionSchema]]

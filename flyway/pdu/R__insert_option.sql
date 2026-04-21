@@ -1,6 +1,7 @@
 -- Clear existing entries for these categories to maintain idempotency in this repeatable migration
+
 DELETE FROM options WHERE field_name IN (
-    'country', 'product_region', 'phase', 'voltage', 'current',
+    'country', 'product_region', 'phase', 'input_voltage', 'input_current'
     'outlet_type', 'outlet_arrangement', 'input_position', 'mounting_type', 'outlet_spacing'
 );
 
@@ -21,12 +22,12 @@ INSERT INTO options (field_name, value, label) VALUES
 ('product_region', 'Asia Pacific', 'Asia Pacific'),
 
 -- Phase
-('phase', '1PH', 'Single Phase'),
-('phase', '3PH', 'Three Phase'),
+('phase', '1PH', '1PH'),
+('phase', '3PH', '3PH'),
 
 -- Voltage
-('voltage', '120V', '120 Volts'),
-('voltage', '208V', '208 Volts'),
+('input_voltage', '120V', '120V'),
+('input_voltage', '208V', '208V'),
 
 -- Current
 ('current', '20A', '20 Amps'),
@@ -56,4 +57,9 @@ INSERT INTO options (field_name, value, label) VALUES
 
 -- Outlet Spacing
 ('outlet_spacing', 'Standard', 'Standard'),
-('outlet_spacing', 'Wide spacing', 'Wide spacing (for bulky adapters)');
+('outlet_spacing', 'Wide spacing', 'Wide spacing (for bulky adapters)'),
+
+('input_current', '20A', '20A'),
+('input_current', '30A', '30A'),
+('input_current', '50A', '50A'),
+('input_current', '60A', '60A');
