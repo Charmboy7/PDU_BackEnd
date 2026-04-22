@@ -135,4 +135,13 @@ INSERT INTO options (field_name, value, label, metadata) VALUES
 -- Services & Warranty - Warranty
 ('warranty_period', '1 Year', '1 Year', NULL),
 ('warranty_period', '2 Years', '2 Years', NULL),
-('warranty_period', '3 Years', '3 Years', NULL);
+('warranty_period', '3 Years', '3 Years', NULL),
+
+-- Enclosure Configuration
+('enclosure_form_factor', 'Vertical', 'Vertical', NULL),
+('enclosure_form_factor', 'Horizontal', 'Horizontal', NULL),
+
+('enclosure_color', 'Black', 'Black', NULL),
+('enclosure_color', 'Red', 'Red', NULL),
+('enclosure_color', 'Blue', 'Blue', NULL),
+('enclosure_color', 'Custom', 'Custom', NULL);
