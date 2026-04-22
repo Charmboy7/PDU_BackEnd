@@ -144,4 +144,4 @@ INSERT INTO options (field_name, value, label, metadata) VALUES
 ('enclosure_color', 'Black', 'Black', NULL),
 ('enclosure_color', 'Red', 'Red', NULL),
 ('enclosure_color', 'Blue', 'Blue', NULL),
-('enclosure_color', 'Custom', 'Custom', NULL);
+('enclosure_color', 'Individual', 'Individual', NULL);
