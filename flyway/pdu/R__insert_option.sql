@@ -116,4 +116,9 @@ INSERT INTO options (field_name, value, label, metadata) VALUES
 ('monitoring_feature', 'SWITCH', 'Outlet Switch ON / OFF', NULL),
 ('monitoring_feature', 'SNMP', 'SNMP Hardware', NULL),
 ('monitoring_feature', 'OUTLET_MEAS', 'Outlet Measurement', NULL),
-('monitoring_feature', 'CIRCUIT_MEAS', 'Circuit Measurement', NULL);
+('monitoring_feature', 'CIRCUIT_MEAS', 'Circuit Measurement', NULL),
+
+-- Privacy Policy Toggles
+('privacy_policy', 'AGREE_PRIVACY', '* I agree to allow nVent Electric plc, and its subsidiaries to store and process my personal data. For more information on our privacy practices, please review our Privacy Policy.', NULL),
+('privacy_policy', 'MARKETING_CONSENT', 'Yes, I would like to continue to receive information about products, tips, and customer success stories from nVent.', NULL),
+('privacy_policy', 'EMAIL_COPY', 'Yes, please send me a copy of this configuration by email.', NULL);
