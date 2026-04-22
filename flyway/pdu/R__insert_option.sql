@@ -121,4 +121,18 @@ INSERT INTO options (field_name, value, label, metadata) VALUES
 -- Privacy Policy Toggles
 ('privacy_policy', 'AGREE_PRIVACY', '* I agree to allow nVent Electric plc, and its subsidiaries to store and process my personal data. For more information on our privacy practices, please review our Privacy Policy.', NULL),
 ('privacy_policy', 'MARKETING_CONSENT', 'Yes, I would like to continue to receive information about products, tips, and customer success stories from nVent.', NULL),
-('privacy_policy', 'EMAIL_COPY', 'Yes, please send me a copy of this configuration by email.', NULL);
+('privacy_policy', 'EMAIL_COPY', 'Yes, please send me a copy of this configuration by email.', NULL),
+
+-- Services & Warranty - Installation
+('service_installation', 'installationRequired', 'Installation required', NULL),
+('service_installation', 'onSiteSupport', 'On-site support', NULL),
+
+-- Services & Warranty - Testing
+('service_testing', 'factoryAcceptanceTest', 'Factory acceptance test (FAT)', NULL),
+('service_testing', 'siteAcceptanceTest', 'Site acceptance test (SAT)', NULL),
+('service_testing', 'loadBankTesting', 'Load bank testing', NULL),
+
+-- Services & Warranty - Warranty
+('warranty_period', '1 Year', '1 Year', NULL),
+('warranty_period', '2 Years', '2 Years', NULL),
+('warranty_period', '3 Years', '3 Years', NULL);

@@ -83,4 +83,38 @@ VALUES
       { "if": "RP100", "values": ["CIRCUIT_MEAS"] }
     ]
   }'::jsonb
+),
+-- Services & Warranty Rules
+(
+  'services_warranty',
+  'onSiteSupport',
+  'installationRequired',
+  '{
+    "conditions": [
+      { "if": true, "values": [true] },
+      { "if": false, "values": [] }
+    ]
+  }'::jsonb
+),
+(
+  'services_warranty',
+  'siteAcceptanceTest',
+  'onSiteSupport',
+  '{
+    "conditions": [
+      { "if": true, "values": [true] },
+      { "if": false, "values": [] }
+    ]
+  }'::jsonb
+),
+(
+  'services_warranty',
+  'loadBankTesting',
+  'factoryAcceptanceTest',
+  '{
+    "conditions": [
+      { "if": true, "values": [true] },
+      { "if": false, "values": [] }
+    ]
+  }'::jsonb
 );
